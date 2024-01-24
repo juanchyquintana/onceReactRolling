@@ -6,7 +6,6 @@ const FormularioNoticias = () => {
 
     const [categoria, setCategoria] = useState('general')
     const [noticias, setNoticias] = useState([])
-    const [totalNoticias, setTotalNoticias] = useState(0)
 
     const url = `https://newsapi.org/v2/top-headlines?country=us&category=${categoria}&apiKey=de7790c8316344f1aad516564e45553f`
 
@@ -16,7 +15,6 @@ const FormularioNoticias = () => {
             const data = await respuesta.json()
             
             setNoticias(data.articles)
-            setTotalNoticias(data.totalResults)
         }
         consultarAPI()
     }, [categoria])
@@ -50,7 +48,6 @@ const FormularioNoticias = () => {
 
       <ListadoNoticia
         noticias={noticias}
-        totalNoticias={totalNoticias}
       />
     </>
   );
